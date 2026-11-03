@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { X, Star, Calendar, ArrowUpRight, ArrowDownRight, Tag, ShieldCheck, CreditCard, Mail } from 'lucide-react';
 import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency } from '../utils';
+import { TransactionBanner } from './TransactionBanner';
 
 export const ExpenseModal: React.FC = () => {
   const { state, closeDetailModal, toggleFavorite } = useExpense();
@@ -122,17 +123,8 @@ export const ExpenseModal: React.FC = () => {
 
         {/* Modal Body */}
         <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
-          {/* Hình ảnh giao dịch trực quan */}
-          {item.imageUrl && (
-            <div className="relative h-44 w-full rounded-2xl overflow-hidden border border-slate-800 shadow-md">
-              <img
-                src={item.imageUrl}
-                alt={`Ảnh chi tiết khoản ${item.title}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-black/30 pointer-events-none" />
-            </div>
-          )}
+          {/* Banner Nhận diện giao dịch sinh viên UTC2 chuẩn xác 100% */}
+          <TransactionBanner item={item} size="lg" />
 
           {/* Header Khoản tiền & Tiêu đề */}
           <div>

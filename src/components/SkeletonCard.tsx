@@ -7,12 +7,14 @@ export const SkeletonCard: React.FC = () => {
       aria-hidden="true"
     >
       <div>
-        {/* Banner Hình ảnh Skeleton (khớp 100% kích thước ảnh ExpenseCard để CLS = 0) */}
-        <div className="relative h-40 w-full rounded-xl mb-3.5 bg-slate-800/80 overflow-hidden">
-          <div className="absolute top-2.5 left-2.5 h-5 w-20 bg-slate-700/80 rounded-md"></div>
-          <div className="absolute top-2.5 right-2.5 w-7 h-7 bg-slate-700/80 rounded-lg"></div>
-          <div className="absolute bottom-2 left-2.5 h-4 w-24 bg-slate-700/80 rounded"></div>
+        {/* Header trên thẻ: Badge & Star placeholder */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="h-5 w-20 bg-slate-800 rounded-md"></div>
+          <div className="w-7 h-7 bg-slate-800 rounded-lg"></div>
         </div>
+
+        {/* Voucher Banner Placeholder (khớp 100% tỷ lệ TransactionBanner để CLS = 0) */}
+        <div className="h-36 sm:h-40 w-full rounded-xl mb-3.5 bg-slate-800/80"></div>
 
         {/* Số tiền Placeholder */}
         <div className="flex items-center gap-2 mb-3">

@@ -4,6 +4,7 @@ import { Star, Eye, Calendar, ArrowUpRight, ArrowDownRight, Edit2, Trash2 } from
 import { ExpenseItem } from '../types';
 import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency, truncateText } from '../utils';
+import { TransactionBanner } from './TransactionBanner';
 
 interface ExpenseCardProps {
   item: ExpenseItem;
@@ -43,48 +44,33 @@ export const ExpenseCard: React.FC<ExpenseCardProps> = ({ item }) => {
   return (
     <article className="flex flex-col justify-between bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-emerald-600/80 rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-2xl hover:shadow-emerald-950/50 transition-all duration-200 group">
       <div>
-        {/* Banner Hình ảnh minh họa trực quan theo đúng tiêu đề từng khoản giao dịch */}
-        <div className="relative h-40 w-full overflow-hidden rounded-xl mb-3.5 bg-slate-950 border border-slate-800/80">
-          <img
-            src={item.imageUrl || 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80'}
-            alt={`Ảnh minh họa khoản thu chi: ${item.title}`}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-black/40 pointer-events-none" />
+        {/* Header trên thẻ: Badge danh mục & Nút Yêu thích (F=1) */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <span
+            className={`inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold border ${badge.bg}`}
+          >
+            {badge.label}
+          </span>
 
-          {/* Badge danh mục nổi trên ảnh */}
-          <div className="absolute top-2.5 left-2.5">
-            <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-semibold border backdrop-blur-md shadow-sm ${badge.bg}`}
-            >
-              {badge.label}
-            </span>
-          </div>
+          {/* Nút Yêu thích (F=1) - Bắt buộc có aria-label và aria-pressed */}
+          <button
+            type="button"
+            onClick={() => toggleFavorite(item.id)}
+            className={`p-1.5 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+              isFavorite
+                ? 'bg-amber-950/90 border-amber-500 text-amber-400 shadow-sm'
+                : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-amber-400'
+            }`}
+            aria-label={isFavorite ? `Bỏ yêu thích giao dịch ${item.title}` : `Thêm giao dịch ${item.title} vào yêu thích`}
+            aria-pressed={isFavorite}
+          >
+            <Star className={`w-4 h-4 ${isFavorite ? 'fill-amber-400' : ''}`} />
+          </button>
+        </div>
 
-          {/* Nút Yêu thích (F=1) nổi trên góc phải ảnh - Có aria-label và aria-pressed */}
-          <div className="absolute top-2.5 right-2.5">
-            <button
-              type="button"
-              onClick={() => toggleFavorite(item.id)}
-              className={`p-1.5 rounded-lg border backdrop-blur-md transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
-                isFavorite
-                  ? 'bg-amber-950/90 border-amber-500 text-amber-400 shadow-md shadow-amber-950/60'
-                  : 'bg-slate-900/80 border-slate-700/80 text-slate-300 hover:text-amber-400'
-              }`}
-              aria-label={isFavorite ? `Bỏ yêu thích giao dịch ${item.title}` : `Thêm giao dịch ${item.title} vào yêu thích`}
-              aria-pressed={isFavorite}
-            >
-              <Star className={`w-4 h-4 ${isFavorite ? 'fill-amber-400' : ''}`} />
-            </button>
-          </div>
-
-          {/* Mã hóa đơn nổi trên góc dưới ảnh */}
-          <div className="absolute bottom-2 left-2.5">
-            <span className="text-[11px] text-slate-300/90 font-mono bg-slate-950/80 px-2 py-0.5 rounded border border-slate-700/60">
-              #{item.invoiceNumber}
-            </span>
-          </div>
+        {/* Voucher Đồ Họa Số Hóa Nhận Diện Thương Hiệu 100% Chân Thực Sinh Viên UTC2 */}
+        <div className="mb-3.5">
+          <TransactionBanner item={item} />
         </div>
 
         {/* Số tiền giao dịch nổi bật */}
