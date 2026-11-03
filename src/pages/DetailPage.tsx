@@ -166,6 +166,30 @@ export const DetailPage: React.FC = () => {
         <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Cột 1 & 2: Thông tin chi tiết */}
           <div className="md:col-span-2 space-y-6">
+            {/* Ảnh chụp thực tế của khoản giao dịch sinh viên */}
+            {item.imageUrl && (
+              <div className="relative w-full h-64 sm:h-80 rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl bg-slate-950 group">
+                <img
+                  src={item.imageUrl}
+                  alt={`Hình ảnh minh họa thực tế cho ${item.title}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
+                  <span className="px-3.5 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-slate-700 font-medium flex items-center gap-2 shadow-lg">
+                    <span role="img" aria-label="camera">📷</span>
+                    <span>Hình ảnh thực tế: <strong className="text-emerald-400">{item.merchantOrPayer}</strong></span>
+                  </span>
+                  <span className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-emerald-950/85 backdrop-blur-md border border-emerald-600/70 text-emerald-300 font-semibold shadow-lg">
+                    Xác thực hệ thống UTC2
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Banner Nhận diện giao dịch đối tác chuẩn xác */}
             <TransactionBanner item={item} size="lg" />
 

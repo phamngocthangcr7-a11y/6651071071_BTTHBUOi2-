@@ -4,7 +4,6 @@ import { Star, Eye, Calendar, ArrowUpRight, ArrowDownRight, Edit2, Trash2 } from
 import { ExpenseItem } from '../types';
 import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency, truncateText } from '../utils';
-import { TransactionBanner } from './TransactionBanner';
 
 interface ExpenseCardProps {
   item: ExpenseItem;
@@ -68,9 +67,28 @@ export const ExpenseCard: React.FC<ExpenseCardProps> = ({ item }) => {
           </button>
         </div>
 
-        {/* Voucher Đồ Họa Số Hóa Nhận Diện Thương Hiệu 100% Chân Thực Sinh Viên UTC2 */}
-        <div className="mb-3.5">
-          <TransactionBanner item={item} />
+        {/* Ảnh chụp thực tế của giao dịch sinh viên UTC2 */}
+        <div className="relative h-40 w-full rounded-xl overflow-hidden mb-3.5 border border-slate-800 bg-slate-950 group-hover:border-emerald-600/60 transition-colors">
+          {item.imageUrl ? (
+            <img
+              src={item.imageUrl}
+              alt={`Hình ảnh chụp thực tế minh họa cho ${item.title}`}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          ) : null}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
+          <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-slate-300 pointer-events-none">
+            <span className="truncate max-w-[190px] font-medium bg-slate-950/80 px-2 py-0.5 rounded backdrop-blur-sm border border-slate-800/80">
+              {item.merchantOrPayer}
+            </span>
+            <span className="text-[10px] text-emerald-400 font-mono">
+              #{item.invoiceNumber.split('-').pop()}
+            </span>
+          </div>
         </div>
 
         {/* Số tiền giao dịch nổi bật */}

@@ -124,6 +124,24 @@ export const ExpenseModal: React.FC = () => {
 
         {/* Modal Body */}
         <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+          {/* Ảnh chụp thực tế của giao dịch sinh viên */}
+          {item.imageUrl && (
+            <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-slate-700/80 shadow-lg bg-slate-950">
+              <img
+                src={item.imageUrl}
+                alt={`Hình ảnh chụp thực tế cho ${item.title}`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <span className="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-slate-700/80 text-xs text-white font-medium shadow-md">
+                📷 {item.merchantOrPayer}
+              </span>
+            </div>
+          )}
+
           {/* Banner Nhận diện giao dịch sinh viên UTC2 chuẩn xác 100% */}
           <TransactionBanner item={item} size="lg" />
 
