@@ -122,6 +122,18 @@ export const ExpenseModal: React.FC = () => {
 
         {/* Modal Body */}
         <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+          {/* Hình ảnh giao dịch trực quan */}
+          {item.imageUrl && (
+            <div className="relative h-44 w-full rounded-2xl overflow-hidden border border-slate-800 shadow-md">
+              <img
+                src={item.imageUrl}
+                alt={`Ảnh chi tiết khoản ${item.title}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-black/30 pointer-events-none" />
+            </div>
+          )}
+
           {/* Header Khoản tiền & Tiêu đề */}
           <div>
             <div className="flex items-center justify-between mb-2">

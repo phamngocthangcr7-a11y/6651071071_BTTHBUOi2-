@@ -23,6 +23,7 @@ export const ExpenseFormModal: React.FC = () => {
   const [description, setDescription] = useState('');
   const [tagsInput, setTagsInput] = useState('');
   const [invoiceNumber, setInvoiceNumber] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   // Validation errors
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -40,6 +41,7 @@ export const ExpenseFormModal: React.FC = () => {
       setDescription(editingItem.description);
       setTagsInput(editingItem.tags.join(', '));
       setInvoiceNumber(editingItem.invoiceNumber);
+      setImageUrl(editingItem.imageUrl || '');
     } else {
       setTitle('');
       setAmount('');
@@ -52,6 +54,7 @@ export const ExpenseFormModal: React.FC = () => {
       setDescription('');
       setTagsInput('');
       setInvoiceNumber(`INV-UTC2-${Date.now().toString().slice(-4)}`);
+      setImageUrl('');
     }
     setErrors({});
   }, [editingItem, state.isFormModalOpen]);
@@ -156,6 +159,7 @@ export const ExpenseFormModal: React.FC = () => {
       tags: tags.length > 0 ? tags : ['Sinh viên UTC2'],
       invoiceNumber: invoiceNumber.trim() || `UTC2-${Date.now().toString().slice(-4)}`,
       isRecurring: editingItem?.isRecurring ?? false,
+      imageUrl: imageUrl.trim() || editingItem?.imageUrl || 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80',
     };
 
     saveExpense(newItem);
@@ -402,6 +406,21 @@ export const ExpenseFormModal: React.FC = () => {
                 className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
               />
             </div>
+          </div>
+
+          {/* Link hình ảnh minh họa */}
+          <div>
+            <label htmlFor="expense-image-input" className="block text-xs font-semibold text-slate-300 mb-1">
+              Đường link ảnh minh họa (URL):
+            </label>
+            <input
+              id="expense-image-input"
+              type="url"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              placeholder="https://images.unsplash.com/... (Để trống nếu dùng ảnh mặc định)"
+              className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+            />
           </div>
 
           {/* Form Actions */}

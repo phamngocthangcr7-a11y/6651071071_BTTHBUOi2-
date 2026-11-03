@@ -44,11 +44,23 @@ const initialFilters = {
 
 function getInitialExpenses(): ExpenseItem[] {
   try {
+    const defaultData = initialData as ExpenseItem[];
     const saved = localStorage.getItem(STORAGE_EXPENSES_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed as ExpenseItem[];
+        // Tự động đồng bộ trường imageUrl mới cho toàn bộ dữ liệu trong localStorage
+        const merged = (parsed as ExpenseItem[]).map((item) => {
+          if (!item.imageUrl) {
+            const found = defaultData.find((d) => d.id === item.id);
+            if (found?.imageUrl) {
+              return { ...item, imageUrl: found.imageUrl };
+            }
+          }
+          return item;
+        });
+        localStorage.setItem(STORAGE_EXPENSES_KEY, JSON.stringify(merged));
+        return merged;
       }
     }
   } catch (error) {

@@ -3,17 +3,15 @@ import React from 'react';
 export const SkeletonCard: React.FC = () => {
   return (
     <div
-      className="flex flex-col justify-between bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 shadow-lg animate-pulse"
+      className="flex flex-col justify-between bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-lg animate-pulse"
       aria-hidden="true"
     >
       <div>
-        {/* Top Header: Badge + Amount Placeholder */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2">
-            <div className="h-5 w-20 bg-slate-800 rounded-md"></div>
-            <div className="h-4 w-16 bg-slate-800/60 rounded"></div>
-          </div>
-          <div className="w-8 h-8 rounded-lg bg-slate-800"></div>
+        {/* Banner Hình ảnh Skeleton (khớp 100% kích thước ảnh ExpenseCard để CLS = 0) */}
+        <div className="relative h-40 w-full rounded-xl mb-3.5 bg-slate-800/80 overflow-hidden">
+          <div className="absolute top-2.5 left-2.5 h-5 w-20 bg-slate-700/80 rounded-md"></div>
+          <div className="absolute top-2.5 right-2.5 w-7 h-7 bg-slate-700/80 rounded-lg"></div>
+          <div className="absolute bottom-2 left-2.5 h-4 w-24 bg-slate-700/80 rounded"></div>
         </div>
 
         {/* Số tiền Placeholder */}

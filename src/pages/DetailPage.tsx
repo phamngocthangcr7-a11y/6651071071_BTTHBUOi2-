@@ -164,6 +164,23 @@ export const DetailPage: React.FC = () => {
         <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Cột 1 & 2: Thông tin chi tiết */}
           <div className="md:col-span-2 space-y-6">
+            {/* Ảnh minh họa giao dịch thực tế */}
+            {item.imageUrl && (
+              <div className="relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+                <img
+                  src={item.imageUrl}
+                  alt={`Ảnh minh họa cho khoản ${item.title}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="text-xs text-white/90 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-lg border border-slate-700/80">
+                    Bối cảnh giao dịch: {item.title}
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Banner Số tiền */}
             <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
               <div>

@@ -14,25 +14,25 @@ export const ExpenseCard: React.FC<ExpenseCardProps> = ({ item }) => {
   const isFavorite = state.favorites.includes(item.id);
   const isIncome = item.type === 'income';
 
-  // Biểu tượng danh mục
+  // Biểu tượng & màu badge danh mục
   const getCategoryBadge = (cat: string) => {
     switch (cat) {
       case 'education':
-        return { label: 'Học tập', bg: 'bg-emerald-950/80 text-emerald-300 border-emerald-700/60' };
+        return { label: 'Học tập', bg: 'bg-emerald-950/90 text-emerald-300 border-emerald-600/70' };
       case 'living':
-        return { label: 'Nhà ở & Tiện ích', bg: 'bg-blue-950/80 text-blue-300 border-blue-700/60' };
+        return { label: 'Nhà ở & Tiện ích', bg: 'bg-blue-950/90 text-blue-300 border-blue-600/70' };
       case 'food':
-        return { label: 'Ăn uống', bg: 'bg-amber-950/80 text-amber-300 border-amber-700/60' };
+        return { label: 'Ăn uống', bg: 'bg-amber-950/90 text-amber-300 border-amber-600/70' };
       case 'transport':
-        return { label: 'Di chuyển', bg: 'bg-purple-950/80 text-purple-300 border-purple-700/60' };
+        return { label: 'Di chuyển', bg: 'bg-purple-950/90 text-purple-300 border-purple-600/70' };
       case 'tech':
-        return { label: 'Công nghệ', bg: 'bg-cyan-950/80 text-cyan-300 border-cyan-700/60' };
+        return { label: 'Công nghệ & Thiết bị', bg: 'bg-cyan-950/90 text-cyan-300 border-cyan-600/70' };
       case 'entertainment':
-        return { label: 'Giải trí & Thể thao', bg: 'bg-pink-950/80 text-pink-300 border-pink-700/60' };
+        return { label: 'Giải trí & Thể thao', bg: 'bg-pink-950/90 text-pink-300 border-pink-600/70' };
       case 'health':
-        return { label: 'Sức khỏe', bg: 'bg-red-950/80 text-red-300 border-red-700/60' };
+        return { label: 'Sức khỏe', bg: 'bg-red-950/90 text-red-300 border-red-600/70' };
       case 'income':
-        return { label: 'Thu nhập', bg: 'bg-emerald-950/80 text-emerald-300 border-emerald-700/60' };
+        return { label: 'Thu nhập & Lương', bg: 'bg-emerald-950/90 text-emerald-300 border-emerald-600/70' };
       default:
         return { label: item.categoryName, bg: 'bg-slate-800 text-slate-300 border-slate-700' };
     }
@@ -41,36 +41,53 @@ export const ExpenseCard: React.FC<ExpenseCardProps> = ({ item }) => {
   const badge = getCategoryBadge(item.category);
 
   return (
-    <article className="flex flex-col justify-between bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-emerald-700/70 rounded-2xl p-5 shadow-lg hover:shadow-2xl hover:shadow-emerald-950/40 transition-all duration-200 group">
+    <article className="flex flex-col justify-between bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-emerald-600/80 rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-2xl hover:shadow-emerald-950/50 transition-all duration-200 group">
       <div>
-        {/* Top Header: Badge + Amount + Favorite Button */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex flex-wrap items-center gap-2">
+        {/* Banner Hình ảnh minh họa trực quan theo đúng tiêu đề từng khoản giao dịch */}
+        <div className="relative h-40 w-full overflow-hidden rounded-xl mb-3.5 bg-slate-950 border border-slate-800/80">
+          <img
+            src={item.imageUrl || 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80'}
+            alt={`Ảnh minh họa khoản thu chi: ${item.title}`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-black/40 pointer-events-none" />
+
+          {/* Badge danh mục nổi trên ảnh */}
+          <div className="absolute top-2.5 left-2.5">
             <span
-              className={`inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold border ${badge.bg}`}
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-semibold border backdrop-blur-md shadow-sm ${badge.bg}`}
             >
               {badge.label}
             </span>
-            <span className="text-[11px] text-slate-500 font-mono">#{item.invoiceNumber}</span>
           </div>
 
-          {/* Nút Yêu thích (F=1) - Bắt buộc có aria-label và aria-pressed */}
-          <button
-            type="button"
-            onClick={() => toggleFavorite(item.id)}
-            className={`p-1.5 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
-              isFavorite
-                ? 'bg-amber-950/60 border-amber-600/70 text-amber-400'
-                : 'bg-slate-950 border-slate-800 text-slate-500 hover:text-amber-400 hover:border-slate-700'
-            }`}
-            aria-label={isFavorite ? `Bỏ yêu thích giao dịch ${item.title}` : `Thêm giao dịch ${item.title} vào yêu thích`}
-            aria-pressed={isFavorite}
-          >
-            <Star className={`w-4 h-4 ${isFavorite ? 'fill-amber-400' : ''}`} />
-          </button>
+          {/* Nút Yêu thích (F=1) nổi trên góc phải ảnh - Có aria-label và aria-pressed */}
+          <div className="absolute top-2.5 right-2.5">
+            <button
+              type="button"
+              onClick={() => toggleFavorite(item.id)}
+              className={`p-1.5 rounded-lg border backdrop-blur-md transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                isFavorite
+                  ? 'bg-amber-950/90 border-amber-500 text-amber-400 shadow-md shadow-amber-950/60'
+                  : 'bg-slate-900/80 border-slate-700/80 text-slate-300 hover:text-amber-400'
+              }`}
+              aria-label={isFavorite ? `Bỏ yêu thích giao dịch ${item.title}` : `Thêm giao dịch ${item.title} vào yêu thích`}
+              aria-pressed={isFavorite}
+            >
+              <Star className={`w-4 h-4 ${isFavorite ? 'fill-amber-400' : ''}`} />
+            </button>
+          </div>
+
+          {/* Mã hóa đơn nổi trên góc dưới ảnh */}
+          <div className="absolute bottom-2 left-2.5">
+            <span className="text-[11px] text-slate-300/90 font-mono bg-slate-950/80 px-2 py-0.5 rounded border border-slate-700/60">
+              #{item.invoiceNumber}
+            </span>
+          </div>
         </div>
 
-        {/* Số tiền nổi bật */}
+        {/* Số tiền giao dịch nổi bật */}
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5">
             <div
@@ -95,8 +112,8 @@ export const ExpenseCard: React.FC<ExpenseCardProps> = ({ item }) => {
           {item.title}
         </h3>
 
-        {/* Mô tả cắt ngắn bằng hàm truncateText */}
-        <p className="text-xs text-slate-400 mb-4 line-clamp-2 leading-relaxed">
+        {/* Mô tả cắt ngắn bằng hàm truncateText từ utils.ts */}
+        <p className="text-xs text-slate-400 mb-3.5 line-clamp-2 leading-relaxed">
           {truncateText(item.description, 75)}
         </p>
 

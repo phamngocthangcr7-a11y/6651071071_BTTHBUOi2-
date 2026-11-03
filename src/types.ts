@@ -25,6 +25,7 @@ export interface ExpenseItem {
   tags: string[];
   invoiceNumber: string;
   isRecurring?: boolean;
+  imageUrl?: string;
 }
 
 export type FilterType = 'all' | 'income' | 'expense';

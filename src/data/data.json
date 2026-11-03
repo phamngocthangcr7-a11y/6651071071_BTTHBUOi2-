@@ -13,7 +13,8 @@
     "merchantOrPayer": "Phòng Kế hoạch Tài chính UTC2",
     "tags": ["Học tập", "UTC2", "Tín chỉ", "Bắt buộc"],
     "invoiceNumber": "INV-UTC2-2026-001",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-002",
@@ -29,7 +30,8 @@
     "merchantOrPayer": "FPT Software Global",
     "tags": ["Thu nhập", "Lương", "Thực tập", "Frontend"],
     "invoiceNumber": "PAY-FPT-2026-1005",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-003",
@@ -45,7 +47,8 @@
     "merchantOrPayer": "Nhà trọ Minh Khang Lê Văn Việt",
     "tags": ["Phòng trọ", "Sinh hoạt", "Cố định"],
     "invoiceNumber": "REC-TRO-2026-10",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-004",
@@ -61,7 +64,8 @@
     "merchantOrPayer": "Trường ĐH Giao thông Vận tải Phân hiệu TPHCM",
     "tags": ["Học bổng", "Thành tích", "UTC2"],
     "invoiceNumber": "SCH-UTC2-2026-08",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-005",
@@ -77,7 +81,8 @@
     "merchantOrPayer": "Điện Lực Thủ Đức & Cáp Quang Viettel",
     "tags": ["Điện nước", "Wifi", "Sinh hoạt"],
     "invoiceNumber": "UTIL-2026-1008",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-006",
@@ -93,11 +98,12 @@
     "merchantOrPayer": "MemoryZone Chi nhánh Thủ Đức",
     "tags": ["Phần cứng", "SSD", "Laptop", "Tech"],
     "invoiceNumber": "MZ-INV-98234",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-007",
-    "title": "Cơm trưa sinh viên căn tin UTC2 (tháng 10)",
+    "title": "Cơm trưa sinh viên căn tin UTC2",
     "amount": 780000,
     "type": "expense",
     "category": "food",
@@ -109,7 +115,8 @@
     "merchantOrPayer": "Căn tin sinh viên UTC2",
     "tags": ["Ăn trưa", "Căn tin", "Sinh viên"],
     "invoiceNumber": "CAN-2026-1012",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-008",
@@ -125,7 +132,8 @@
     "merchantOrPayer": "Petrolimex Trạm 32 Ngã Tư Thủ Đức",
     "tags": ["Xăng xe", "Di chuyển", "Wave Alpha"],
     "invoiceNumber": "PETRO-1013-094",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1527018606412-03fa37c95e63?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-009",
@@ -141,7 +149,8 @@
     "merchantOrPayer": "Nhà sách Fahasa Quận 9",
     "tags": ["Sách", "Lập trình", "Tài liệu"],
     "invoiceNumber": "FAH-2026-7789",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-010",
@@ -157,7 +166,8 @@
     "merchantOrPayer": "Tổ chức Giáo dục IIG Việt Nam",
     "tags": ["Tiếng Anh", "TOEIC", "Chứng chỉ"],
     "invoiceNumber": "IIG-TOEIC-2026-88",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-011",
@@ -173,11 +183,12 @@
     "merchantOrPayer": "SiliconZ Vietnam Store",
     "tags": ["Keychron", "Bàn phím cơ", "Công nghệ"],
     "invoiceNumber": "SZ-KEY-2026-441",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-012",
-    "title": "Thẻ xe buýt liên tuyến sinh viên (Tuyến 55 & 56)",
+    "title": "Thẻ xe buýt liên tuyến sinh viên",
     "amount": 135000,
     "type": "expense",
     "category": "transport",
@@ -189,7 +200,8 @@
     "merchantOrPayer": "Trung tâm Quản lý Giao thông Công cộng TPHCM",
     "tags": ["Xe buýt", "Sinh viên", "Giao thông xanh"],
     "invoiceNumber": "BUS-STU-2026-1017",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-013",
@@ -205,11 +217,12 @@
     "merchantOrPayer": "Đoàn Thanh niên UTC2",
     "tags": ["Giải thưởng", "Đồ án", "UTC2", "Thành tích"],
     "invoiceNumber": "AWD-UTC2-2026-01",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1578269174936-2709b6aeb913?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-014",
-    "title": "Cà phê học nhóm ôn thi The Coffee House",
+    "title": "Cà phê học nhóm The Coffee House",
     "amount": 145000,
     "type": "expense",
     "category": "entertainment",
@@ -221,7 +234,8 @@
     "merchantOrPayer": "The Coffee House Đỗ Xuân Hợp",
     "tags": ["Cà phê", "Học nhóm", "Thảo luận"],
     "invoiceNumber": "TCH-DXH-2026-902",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-015",
@@ -237,7 +251,8 @@
     "merchantOrPayer": "Sân bóng đá cỏ nhân tạo Sao Vàng",
     "tags": ["Thể thao", "Bóng đá", "Sinh viên"],
     "invoiceNumber": "FB-SV-2026-1021",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-016",
@@ -253,7 +268,8 @@
     "merchantOrPayer": "Bảo hiểm Xã hội TP Thủ Đức",
     "tags": ["Bảo hiểm", "Y tế", "Sức khỏe"],
     "invoiceNumber": "BHYT-UTC2-2026",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-017",
@@ -269,7 +285,8 @@
     "merchantOrPayer": "Bộ môn Hệ thống thông tin UTC2",
     "tags": ["Trợ giảng", "Thu nhập", "UTC2"],
     "invoiceNumber": "TA-UTC2-2026-10",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-018",
@@ -285,7 +302,8 @@
     "merchantOrPayer": "Phong Vũ Computer",
     "tags": ["Logitech", "Chuột", "Ergonomic", "Tech"],
     "invoiceNumber": "PV-INV-2026-5512",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-019",
@@ -301,11 +319,12 @@
     "merchantOrPayer": "Google Ireland Limited",
     "tags": ["Cloud", "Google One", "Lưu trữ"],
     "invoiceNumber": "GOOG-2026-1025-VN",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-020",
-    "title": "Gói cước 4G Viettel Sinh viên (ST90K)",
+    "title": "Gói cước 4G Viettel Sinh viên ST90K",
     "amount": 90000,
     "type": "expense",
     "category": "living",
@@ -317,7 +336,8 @@
     "merchantOrPayer": "Tập đoàn Công nghiệp - Viễn thông Quân đội Viettel",
     "tags": ["4G", "Viettel", "Viễn thông"],
     "invoiceNumber": "VTT-ST90-2026-10",
-    "isRecurring": true
+    "isRecurring": true,
+    "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-021",
@@ -333,7 +353,8 @@
     "merchantOrPayer": "Siêu thị Co.opmart Xa Lộ Hà Nội",
     "tags": ["Thực phẩm", "Nấu ăn", "Tiết kiệm"],
     "invoiceNumber": "COOP-XLHN-2026-382",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-022",
@@ -349,7 +370,8 @@
     "merchantOrPayer": "Udemy Inc.",
     "tags": ["Udemy", "React", "TypeScript", "Online Course"],
     "invoiceNumber": "UDEMY-INV-2026-789",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-023",
@@ -365,7 +387,8 @@
     "merchantOrPayer": "Ban Quản lý Khu Công Nghệ Cao TPHCM",
     "tags": ["Hackathon", "Giải thưởng", "Fintech", "Thu nhập"],
     "invoiceNumber": "HACK-TD-2026-02",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "exp-024",
@@ -381,6 +404,7 @@
     "merchantOrPayer": "Nhà thuốc FPT Long Châu Lê Văn Việt",
     "tags": ["Sức khỏe", "Vitamin", "Y tế"],
     "invoiceNumber": "LC-LVV-2026-9011",
-    "isRecurring": false
+    "isRecurring": false,
+    "imageUrl": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80"
   }
 ]
