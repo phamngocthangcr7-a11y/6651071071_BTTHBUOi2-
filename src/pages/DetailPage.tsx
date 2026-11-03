@@ -20,6 +20,7 @@ import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency } from '../utils';
 import receiptSvg from '../assets/receipt-placeholder.svg';
 import { TransactionBanner } from '../components/TransactionBanner';
+import { TransactionProofIllustration } from '../components/TransactionProofIllustration';
 
 export const DetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -209,6 +210,15 @@ export const DetailPage: React.FC = () => {
               <div className="p-4 rounded-2xl bg-slate-950/50 border border-slate-800 text-sm text-slate-200 leading-relaxed">
                 {item.description}
               </div>
+            </div>
+
+            {/* Hóa Đơn & Chứng Từ Bán Lẻ Thực Tế Riêng Biệt Cho Từng Khoản */}
+            <div className="space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-emerald-400" />
+                <span>Hóa Đơn &amp; Chứng Từ Điện Tử Thực Tế</span>
+              </h3>
+              <TransactionProofIllustration item={item} />
             </div>
 
             {/* Bảng thuộc tính chi tiết */}

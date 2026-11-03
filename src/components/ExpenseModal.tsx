@@ -4,6 +4,7 @@ import { X, Star, Calendar, ArrowUpRight, ArrowDownRight, Tag, ShieldCheck, Cred
 import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency } from '../utils';
 import { TransactionBanner } from './TransactionBanner';
+import { TransactionProofIllustration } from './TransactionProofIllustration';
 
 export const ExpenseModal: React.FC = () => {
   const { state, closeDetailModal, toggleFavorite } = useExpense();
@@ -188,6 +189,14 @@ export const ExpenseModal: React.FC = () => {
               </span>
               <span className="font-semibold text-emerald-400 truncate block">{item.contactEmail}</span>
             </div>
+          </div>
+
+          {/* Phiếu Hóa Đơn Minh Họa Thực Tế */}
+          <div className="space-y-1.5">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+              Biên lai chứng từ bán lẻ thực tế:
+            </span>
+            <TransactionProofIllustration item={item} />
           </div>
 
           {/* Tags */}
